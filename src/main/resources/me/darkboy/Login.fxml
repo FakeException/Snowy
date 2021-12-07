@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import io.github.palexdev.materialfx.controls.MFXButton?>
+<?import io.github.palexdev.materialfx.controls.MFXPasswordField?>
+<?import io.github.palexdev.materialfx.controls.MFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.darkboy.controllers.LoginController">
+    <HBox alignment="CENTER" layoutX="20.0" layoutY="90.0" spacing="10.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="90.0">
+        <children>
+            <Label text="Email :">
+                <font>
+                    <Font size="20.0" />
+                </font>
+            </Label>
+            <MFXTextField prefHeight="25.0" prefWidth="141.0">
+                <opaqueInsets>
+                    <Insets />
+                </opaqueInsets>
+            </MFXTextField>
+        </children>
+        <padding>
+            <Insets bottom="20.0" top="20.0" />
+        </padding>
+    </HBox>
+    <HBox alignment="CENTER" layoutX="20.0" layoutY="190.0" spacing="10.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="190.0">
+        <padding>
+            <Insets bottom="20.0" top="20.0" />
+        </padding>
+        <children>
+            <Label text="Password :">
+                <font>
+                    <Font size="20.0" />
+                </font>
+            </Label>
+            <MFXPasswordField prefHeight="25.0" prefWidth="141.0">
+                <opaqueInsets>
+                    <Insets />
+                </opaqueInsets>
+            </MFXPasswordField>
+        </children>
+    </HBox>
+    <HBox alignment="CENTER" layoutX="20.0" layoutY="295.0" spacing="40.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="295.0">
+        <padding>
+            <Insets bottom="20.0" top="20.0" />
+        </padding>
+        <MFXButton fx:id="pOverlayClose" buttonType="RAISED" depthLevel="LEVEL1" prefHeight="55.0" prefWidth="200.0" rippleColor="#cc74da" rippleRadius="20.0" text="Login!">
+            <font>
+                <Font size="21.0" />
+            </font></MFXButton>
+    </HBox>
+</AnchorPane>
