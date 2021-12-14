@@ -15,6 +15,7 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
@@ -45,6 +46,9 @@ public class MainController implements Initializable {
     private HBox windowButtons;
 
     @FXML
+    public Label snowyText;
+
+    @FXML
     private StackPane navBar;
 
     @FXML
@@ -60,7 +64,7 @@ public class MainController implements Initializable {
     private VBox logoPane;
 
     @FXML
-    private Label splashLabel;
+    private ImageView logo;
 
     public MainController(Stage primaryStage) {
         this.primaryStage = primaryStage;
@@ -146,9 +150,10 @@ public class MainController implements Initializable {
         primaryStage.setOnShown(event -> presentation());
     }
 
+    // Ij teng nu pesc tant asott
     private void presentation() {
         AnimationUtils.SequentialBuilder.build()
-                .add(AnimationUtils.TimelineBuilder.build().show(450, splashLabel).setDelay(50).getAnimation())
+                .add(AnimationUtils.ParallelBuilder.build().show(450, logo, snowyText).setDelay(50).getAnimation())
                 .setOnFinished(event -> AnimationUtils.SequentialBuilder.build()
                         .add(AnimationUtils.TimelineBuilder.build().hide(300, logoPane).setOnFinished(end -> logoPane.setVisible(false)).getAnimation())
                         .add(AnimationUtils.ParallelBuilder.build().show(800, contentPane, opNavButton, mainPane).setOnFinished(end -> {

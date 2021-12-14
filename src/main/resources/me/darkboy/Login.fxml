@@ -17,7 +17,7 @@
                     <Font size="20.0" />
                 </font>
             </Label>
-            <MFXTextField prefHeight="25.0" prefWidth="141.0">
+            <MFXTextField fx:id="emailField" prefHeight="25.0" prefWidth="141.0">
                 <opaqueInsets>
                     <Insets />
                 </opaqueInsets>
@@ -37,7 +37,7 @@
                     <Font size="20.0" />
                 </font>
             </Label>
-            <MFXPasswordField prefHeight="25.0" prefWidth="141.0">
+            <MFXPasswordField fx:id="passwordField" prefHeight="25.0" prefWidth="141.0">
                 <opaqueInsets>
                     <Insets />
                 </opaqueInsets>
@@ -48,7 +48,7 @@
         <padding>
             <Insets bottom="20.0" top="20.0" />
         </padding>
-        <MFXButton fx:id="pOverlayClose" buttonType="RAISED" depthLevel="LEVEL1" prefHeight="55.0" prefWidth="200.0" rippleColor="#cc74da" rippleRadius="20.0" text="Login!">
+        <MFXButton fx:id="doneButton" buttonType="RAISED" depthLevel="LEVEL1" prefHeight="55.0" prefWidth="200.0" rippleColor="#cc74da" rippleRadius="20.0" text="Login!">
             <font>
                 <Font size="21.0" />
             </font></MFXButton>

@@ -16,8 +16,9 @@ import me.darkboy.utils.UserService;
 
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
+import java.io.IOException;
 import java.net.URL;
-import java.sql.SQLException;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class RegisterController implements Initializable {
@@ -106,13 +107,14 @@ public class RegisterController implements Initializable {
 
                     try {
 
-                        if (!service.isAccountExist(details)) {
-                            service.createAccount(details);
+                        String body = Objects.requireNonNull(service.createAccount(details).body()).string();
 
+                        if (body.contains("created")) {
                             infoDialog.setInAnimationType(MFXAnimationFactory.SLIDE_IN_TOP);
                             infoDialog.setOutAnimationType(MFXAnimationFactory.SLIDE_OUT_BOTTOM);
                             infoDialog.show();
                         } else {
+
                             Platform.runLater(() -> {
                                 addContent(errorDialog, "This account already exist, please login!");
                                 errors++;
@@ -120,16 +122,9 @@ public class RegisterController implements Initializable {
                                 errorDialog.setOutAnimationType(MFXAnimationFactory.SLIDE_OUT_BOTTOM);
                                 errorDialog.show();
                             });
-
                         }
-                    } catch (SQLException ignored) {
-                        Platform.runLater(() -> {
-                            addContent(errorDialog, "Couldn't connect to the database");
-                            errors++;
-                            errorDialog.setInAnimationType(MFXAnimationFactory.SLIDE_IN_TOP);
-                            errorDialog.setOutAnimationType(MFXAnimationFactory.SLIDE_OUT_BOTTOM);
-                            errorDialog.show();
-                        });
+                    } catch (IOException e) {
+                        e.printStackTrace();
                     }
 
                 }).start();

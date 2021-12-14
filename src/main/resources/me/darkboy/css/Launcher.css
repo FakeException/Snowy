@@ -71,12 +71,12 @@
 }
 
 #navButton .mfx-font-icon {
-    -mfx-color: #6e0ede;
+    -mfx-color: #7559de;
     -fx-opacity: 0.5;
 }
 
 #navButton .mfx-font-icon:hover {
-    -mfx-color: #6e0ede;
+    -mfx-color: #7559de;
     -fx-opacity: 1.0;
 }
 

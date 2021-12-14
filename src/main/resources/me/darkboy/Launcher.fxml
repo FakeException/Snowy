@@ -1,17 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import io.github.palexdev.materialfx.controls.MFXScrollPane?>
-<?import io.github.palexdev.materialfx.controls.MFXVLoader?>
+<?import io.github.palexdev.materialfx.controls.*?>
 <?import javafx.geometry.*?>
-<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<StackPane id="mainPane" fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="960.0" stylesheets="@css/Launcher.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.darkboy.controllers.MainController">
+<StackPane id="mainPane" fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="960.0" stylesheets="@css/Launcher.css" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.darkboy.controllers.MainController">
    <StackPane id="contentPane" fx:id="contentPane" opacity="0.0" prefHeight="500.0" prefWidth="441.0">
       <StackPane.margin>
          <Insets bottom="15.0" left="20.0" right="20.0" top="15.0" />
       </StackPane.margin>
    </StackPane>
+   <HBox prefHeight="293.0" prefWidth="960.0" spacing="10.0">
+      <children>
+         <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@assets/logo35.png" />
+            </image>
+         </ImageView>
+         <Label fx:id="snowyText" text="Snowy">
+            <font>
+               <Font size="22.0" />
+            </font>
+         </Label>
+      </children>
+      <opaqueInsets>
+         <Insets />
+      </opaqueInsets>
+      <padding>
+         <Insets left="5.0" top="5.0" />
+      </padding>
+   </HBox>
    <StackPane id="navBar" fx:id="navBar" maxWidth="-Infinity" prefWidth="200.0" style="-fx-background-radius: 10; -fx-background-color: white;" translateX="-240.0" StackPane.alignment="CENTER_LEFT">
       <StackPane.margin>
          <Insets bottom="15.0" left="15.0" top="15.0" />
@@ -36,12 +57,12 @@
       </padding>
    </HBox>
    <VBox fx:id="logoPane" alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
-      <HBox alignment="CENTER" prefHeight="100.0" spacing="50.0">
-         <Label id="splashLabel" fx:id="splashLabel" text="Snowy">
-            <padding>
-               <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-            </padding>
-         </Label>
+      <HBox alignment="CENTER" prefHeight="744.0" prefWidth="960.0" spacing="50.0">
+         <ImageView fx:id="logo" fitHeight="290.0" fitWidth="290.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@assets/logo290.png" />
+            </image>
+         </ImageView>
       </HBox>
    </VBox>
 </StackPane>
