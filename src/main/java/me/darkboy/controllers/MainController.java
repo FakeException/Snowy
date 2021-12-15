@@ -146,7 +146,6 @@ public class MainController implements Initializable {
         primaryStage.setOnShown(event -> presentation());
     }
 
-    // Ij teng nu pesc tant asott
     private void presentation() {
         AnimationUtils.SequentialBuilder.build()
                 .add(AnimationUtils.TimelineBuilder.build().show(450, logo).setDelay(50).getAnimation())

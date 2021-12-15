@@ -13,8 +13,8 @@ repositories {
 
 dependencies {
     implementation 'io.github.palexdev:materialfx:11.12.0'
-    implementation 'com.sun.mail:javax.mail:1.6.2'
-    implementation("com.squareup.okhttp3:okhttp:4.9.3")
+    implementation 'commons-validator:commons-validator:1.7'
+    implementation 'com.squareup.okhttp3:okhttp:4.9.3'
 }
 
 javafx {

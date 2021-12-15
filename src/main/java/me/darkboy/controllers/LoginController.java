@@ -13,9 +13,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.layout.Pane;
 import me.darkboy.utils.UserDetails;
 import me.darkboy.utils.UserService;
+import org.apache.commons.validator.routines.EmailValidator;
 
-import javax.mail.internet.AddressException;
-import javax.mail.internet.InternetAddress;
 import java.io.IOException;
 import java.net.URL;
 import java.util.Objects;
@@ -69,6 +68,8 @@ public class LoginController implements Initializable {
             } else if (passwordField.getPassword().isEmpty()) {
                 addContent(errorDialog, "Please input a password");
                 errors++;
+            } else if (passwordField.getPassword().length() < 8) {
+                addContent(errorDialog, "The password should be at least 8 characters");
             }
 
             if (!isValidEmailAddress(emailField.getText())) {
@@ -136,14 +137,8 @@ public class LoginController implements Initializable {
         }
     }
 
-    public static boolean isValidEmailAddress(String email) {
-        boolean result = true;
-        try {
-            InternetAddress emailAddr = new InternetAddress(email);
-            emailAddr.validate();
-        } catch (AddressException ex) {
-            result = false;
-        }
-        return result;
+    private boolean isValidEmailAddress(String email) {
+        EmailValidator validator = EmailValidator.getInstance();
+        return validator.isValid(email);
     }
 }
