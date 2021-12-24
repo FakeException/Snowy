@@ -11,13 +11,12 @@ import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.layout.Pane;
+import me.darkboy.Snowy;
 import me.darkboy.utils.UserDetails;
-import me.darkboy.utils.UserService;
 import org.apache.commons.validator.routines.EmailValidator;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class LoginController implements Initializable {
@@ -85,7 +84,6 @@ public class LoginController implements Initializable {
                 // Login
 
                 UserDetails details = new UserDetails();
-                UserService service = new UserService();
 
                 details.setEmail(emailField.getText());
 
@@ -95,13 +93,9 @@ public class LoginController implements Initializable {
 
                     try {
 
-                        String body = Objects.requireNonNull(service.login(details).body()).string();
+                        String body = Snowy.getService().login(details);
 
-                        if (body.contains("Successfully")) {
-                            infoDialog.setInAnimationType(MFXAnimationFactory.SLIDE_IN_TOP);
-                            infoDialog.setOutAnimationType(MFXAnimationFactory.SLIDE_OUT_BOTTOM);
-                            infoDialog.show();
-                        } else if (body.contains("Wrong")) {
+                        if (body.contains("Wrong")) {
 
                             Platform.runLater(() -> {
                                 addContent(errorDialog, "Wrong password or email!");
@@ -110,7 +104,7 @@ public class LoginController implements Initializable {
                                 errorDialog.setOutAnimationType(MFXAnimationFactory.SLIDE_OUT_BOTTOM);
                                 errorDialog.show();
                             });
-                        } else {
+                        } else if (body.contains("exist")) {
                             Platform.runLater(() -> {
                                 addContent(errorDialog, "This account doesn't exist!");
                                 errors++;
@@ -118,6 +112,14 @@ public class LoginController implements Initializable {
                                 errorDialog.setOutAnimationType(MFXAnimationFactory.SLIDE_OUT_BOTTOM);
                                 errorDialog.show();
                             });
+                        } else {
+//                            infoDialog.setInAnimationType(MFXAnimationFactory.SLIDE_IN_TOP);
+//                            infoDialog.setOutAnimationType(MFXAnimationFactory.SLIDE_OUT_BOTTOM);
+//                            infoDialog.show();
+
+                            Snowy.loadMainUI();
+
+
                         }
                     } catch (IOException e) {
                         e.printStackTrace();

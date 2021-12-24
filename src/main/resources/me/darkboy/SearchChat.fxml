@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import io.github.palexdev.materialfx.controls.MFXButton?>
+<?import io.github.palexdev.materialfx.controls.MFXLabel?>
+<?import io.github.palexdev.materialfx.controls.MFXTextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.darkboy.controllers.SearchChatController">
+    <children>
+        <HBox layoutX="21.0" layoutY="28.0" prefHeight="395.0" prefWidth="608.0">
+            <children>
+                <VBox alignment="CENTER" prefHeight="395.0" prefWidth="617.0" spacing="150.0">
+                    <children>
+                        <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="608.0">
+                            <children>
+                                <MFXLabel text="Search for an user" />
+                            </children>
+                        </VBox>
+                        <MFXTextField promptText="Username..." />
+                        <MFXButton buttonType="RAISED" text="Search for user" />
+                    </children>
+                </VBox>
+            </children>
+        </HBox>
+    </children>
+</AnchorPane>

@@ -11,13 +11,12 @@ import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.layout.Pane;
+import me.darkboy.Snowy;
 import me.darkboy.utils.UserDetails;
-import me.darkboy.utils.UserService;
 import org.apache.commons.validator.routines.EmailValidator;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class RegisterController implements Initializable {
@@ -96,7 +95,6 @@ public class RegisterController implements Initializable {
                 // Create account
 
                 UserDetails details = new UserDetails();
-                UserService service = new UserService();
 
                 details.setUsername(usernameField.getText());
 
@@ -108,12 +106,12 @@ public class RegisterController implements Initializable {
 
                     try {
 
-                        String body = Objects.requireNonNull(service.createAccount(details).body()).string();
+                        String body = Snowy.getService().createAccount(details);
 
                         if (body.contains("created")) {
-                            infoDialog.setInAnimationType(MFXAnimationFactory.SLIDE_IN_TOP);
-                            infoDialog.setOutAnimationType(MFXAnimationFactory.SLIDE_OUT_BOTTOM);
-                            infoDialog.show();
+
+                            Snowy.loadMainUI();
+
                         } else {
 
                             Platform.runLater(() -> {
