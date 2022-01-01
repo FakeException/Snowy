@@ -11,6 +11,7 @@ import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.layout.Pane;
+import javafx.scene.web.WebView;
 import me.darkboy.Snowy;
 import me.darkboy.utils.UserDetails;
 import org.apache.commons.validator.routines.EmailValidator;
@@ -37,6 +38,9 @@ public class RegisterController implements Initializable {
 
     @FXML
     public MFXButton doneButton;
+
+    @FXML
+    public WebView captcha;
 
     public RegisterController(Pane pane) {
         this.pane = pane;
@@ -108,7 +112,7 @@ public class RegisterController implements Initializable {
 
                         String body = Snowy.getService().createAccount(details);
 
-                        if (body.contains("created")) {
+                        if (body.contains("token")) {
 
                             Snowy.loadMainUI();
 

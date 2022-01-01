@@ -25,6 +25,7 @@ public class UserService {
                 .addEncoded("name", user.getUsername())
                 .addEncoded("email", user.getEmail())
                 .addEncoded("password", user.getPassword())
+                .addEncoded("picture", "none")
                 .build();
 
         Request request = new Request.Builder()
@@ -52,9 +53,12 @@ public class UserService {
 
         String body = Objects.requireNonNull(response.body()).string();
 
-        Path file = Paths.get("session.txt");
-        byte[] buf = body.getBytes();
-        Files.write(file, buf);
+        if (isToken(body)) {
+
+            Path file = Paths.get("session.txt");
+            byte[] buf = body.getBytes();
+            Files.write(file, buf);
+        }
 
         return body;
     }
@@ -105,6 +109,10 @@ public class UserService {
         }
 
         return false;
+    }
+
+    public static boolean isToken(String token) {
+        return token.startsWith("token");
     }
 
     public String getSession() throws IOException {

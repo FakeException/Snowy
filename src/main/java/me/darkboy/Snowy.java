@@ -52,6 +52,7 @@ public class Snowy extends Application {
             fxmlLoader.setControllerFactory(controller -> new MainController(primaryStage));
         }
 
+
         snowyPane = fxmlLoader.load();
 
         primaryStage.setTitle("Snowy");
